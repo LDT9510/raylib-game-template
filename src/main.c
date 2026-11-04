@@ -1,4 +1,4 @@
-#include <thirdparty/cimgui/cimgui.h>
+#include <thirdparty/imgui-bundle/dcimgui.h>
 #include <thirdparty/raylib/raylib.h>
 #include <thirdparty/rlImGui/rlImGui.h>
 
@@ -43,7 +43,7 @@ void UpdateDrawFrame(void) {
 
     rlImGuiBegin();
 
-    igShowDemoWindow(NULL);
+    ImGui_ShowDemoWindow(NULL);
 
     rlImGuiEnd();
 

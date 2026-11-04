@@ -14,3 +14,12 @@ endmacro()
 macro(force_string name value)
     set(${name} ${value} CACHE STRING "" FORCE)
 endmacro()
+
+#[[ Copies the compile_commands.json file to the source root, if it exists.]]
+function(copy_compilation_database)
+    if(EXISTS "${CMAKE_BINARY_DIR}/compile_commands.json")
+        file(COPY_FILE
+            "${CMAKE_BINARY_DIR}/compile_commands.json"
+            "${CMAKE_SOURCE_DIR}/compile_commands.json" ONLY_IF_DIFFERENT)
+    endif()
+endfunction()

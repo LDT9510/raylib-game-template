@@ -22,6 +22,7 @@
     },
     {
       "name": "win-base",
+      "hidden": true,
       "inherits": "base",
       "vendor": {
         "jetbrains.com/clion": {
