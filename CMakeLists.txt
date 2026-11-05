@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.23)
-project("raylib-game-template" C)
+project("raylib_game" C CXX)  # needs CXX due to imgui
 
 # set the CMake modules path, required to import using " include(...)"
 list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake")
@@ -10,9 +10,12 @@ include("dependencies/rlImGui")
 include("dependencies/imgui-bundle")
 include("SymlinkContent")
 
-project("raylib-game" C CXX)  # needs CXX because of imgui
-
-add_executable(${PROJECT_NAME} "src/main.c")
+add_executable(${PROJECT_NAME}
+    "src/main.c"
+    "src/app.c"
+    "src/app.h"
+)
+target_include_directories(${PROJECT_NAME} PRIVATE "src/")
 
 set_target_properties(${PROJECT_NAME} PROPERTIES C_STANDARD 11)
 set_target_properties(${PROJECT_NAME} PROPERTIES C_STANDARD_REQUIRED ON)
